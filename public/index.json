@@ -1,0 +1,92 @@
+[
+{
+	"uri": "//localhost:1313/1-introduce/",
+	"title": "1.Introduce",
+	"tags": [],
+	"description": "",
+	"content": "Begin deploying the application, establishing connections to the database with S3, RDS, and EBS. Overview In this workshop, you will explore how to push files to S3, create an RDS service, and deploy an application on EBS.\nContent Introduction Preparation S3 RDS EBS Resource Cleanup "
+},
+{
+	"uri": "//localhost:1313/",
+	"title": "1.Introduce",
+	"tags": [],
+	"description": "",
+	"content": "Begin deploying the application, establishing connections to the database with S3, RDS, and EBS. Overview In this workshop, you will explore how to push files to S3, create an RDS service, and deploy an application on EBS.\nContent Introduction Preparation S3 RDS EBS Resource Cleanup "
+},
+{
+	"uri": "//localhost:1313/5-ebs/5.1-createebs/",
+	"title": "Create a Elastic Beanstalk",
+	"tags": [],
+	"description": "",
+	"content": "EBS Service Access the EBS Service, then we select \u0026ldquo;create application\u0026rdquo; -\u0026gt; We fill out the information\nWe choose tab Enviroment -\u0026gt; we click \u0026ldquo;create enviroment\u0026rdquo;\n-Step 1: Fill the information in 2 items information Application and Enviroment -\u0026gt; Platform: select code we need deploy -\u0026gt;Application code: choose upload code, fill version, upload code with 2 options (local file or S3) -\u0026gt; Next step\n-Step 2: choose create and use service role -\u0026gt; EC2 instance profile : we choose the role in first step we created -\u0026gt; Next step\n-Step 3 and 4 (Optional): In these steps, we can configure what we want, or we can choose to skip them.\n-Step 5: In this step, scroll to the last page and configure the environment property overwrite. Then, retrieve the information from the RDS service, such as Endpoint, dbname, username, and password. Proceed to the next and last step for review.\n-Step 6: We review the information and click submit\nPlease wait a moment while EBS deploys your code.\n"
+},
+{
+	"uri": "//localhost:1313/3-s3/3.1-creates3/",
+	"title": "Create Bucket S3",
+	"tags": [],
+	"description": "",
+	"content": "Create Bucket S3 Access the S3 Service then select Create S3 Bucket: Provide a name for bucket and choice recommend The last step we click create Upload a file to an S3 bucket. Access the S3 Service then select bucket you want and click upload: Provide a name for bucket and choice recommend "
+},
+{
+	"uri": "//localhost:1313/4-rds/4.1-createrds/",
+	"title": "Create RDS",
+	"tags": [],
+	"description": "",
+	"content": "Create RDS Access the RDS Service, then we select create database\nWe choose method: Standard -\u0026gt; Engine: choose MSSQl -\u0026gt; Teamplates: choose free tier -\u0026gt; Settings: Fill in the information such as name, username, and password and disable auto scalling-\u0026gt; Connectivity: choose puclic access yes -\u0026gt; Create database\n"
+},
+{
+	"uri": "//localhost:1313/2-preparation/",
+	"title": "Prepare",
+	"tags": [],
+	"description": "",
+	"content": "Source code deloy in EBS You can use any programming language to deploy on EBS. In this workshop, I am using Java to deploy a web application to EBS.\nFile .bak of database You need to prepare a .bak file of any database. In this workshop, I am using MSSQL.\nExample with MSSQL\nConnect to database and click right mouse in database you need export file .bak -\u0026gt; choose task -\u0026gt; Back up Choose address save file and click add First, let\u0026rsquo;s create a role providing some permissions to work with the EBS service as below. Enter IAM -\u0026gt; Role -\u0026gt; Create role -\u0026gt; Select AWS Service -\u0026gt; Select service and use case we choice EC2 -\u0026gt; Select 3 policies below -\u0026gt; Provide a name for the role and then create it. Alright, now we move on next session "
+},
+{
+	"uri": "//localhost:1313/4-rds/4.2-connectrdss3/",
+	"title": "Restore database with option group",
+	"tags": [],
+	"description": "",
+	"content": "Restore database with option group Access service RDS select Option group\nFill out the information form.\nSelect the recently created \u0026ldquo;option group\u0026rdquo; -\u0026gt; Find the option -\u0026gt; Add the option.\nOptionally fill in information like this -\u0026gt; click create.\nReturn to the database tab -\u0026gt; select the database we need to restore and choose modify -\u0026gt; find \u0026ldquo;Additional configuration\u0026rdquo; and configure as follows -\u0026gt; modify the database.\n"
+},
+{
+	"uri": "//localhost:1313/3-s3/",
+	"title": "Introduce S3",
+	"tags": [],
+	"description": "",
+	"content": "Introduce S3 Amazon Simple Storage Service (Amazon S3) is an object storage service offering industry-leading scalability, data availability, security, and performance. Customers of all sizes and industries can store and protect any amount of data for virtually any use case, such as data lakes, cloud-native applications, and mobile apps. With cost-effective storage classes and easy-to-use management features, you can optimize costs, organize data, and configure fine-tuned access controls to meet specific business, organizational, and compliance requirements.\nContent Create bucket S3 "
+},
+{
+	"uri": "//localhost:1313/4-rds/",
+	"title": "Introduce RDS Service",
+	"tags": [],
+	"description": "",
+	"content": "Introduce RDS Service Amazon Relational Database Service (Amazon RDS) is a collection of managed services that makes it simple to set up, operate, and scale databases in the cloud. Choose from eight popular engines: Amazon Aurora PostgreSQL-Compatible Edition, Amazon Aurora MySQL-Compatible Edition, RDS for PostgreSQL, RDS for MySQL, RDS for MariaDB, RDS for SQL Server, RDS for Oracle, and RDS for Db2. Deploy on premises with Amazon RDS on AWS Outposts or with elevated access to the underlying operating system and database environment using Amazon RDS Custom.\nContent Create RDS Restore RDS "
+},
+{
+	"uri": "//localhost:1313/5-ebs/",
+	"title": "Introduce EBS",
+	"tags": [],
+	"description": "",
+	"content": "1. Introduce EBS Amazon Elastic Block Store (Amazon EBS) is an easy-to-use, scalable, high-performance block-storage service designed for Amazon Elastic Compute Cloud (Amazon EC2).\n"
+},
+{
+	"uri": "//localhost:1313/6-cleanup/",
+	"title": "Clean up resources",
+	"tags": [],
+	"description": "",
+	"content": "Clean up resources We will proceed to delete the resources in the following order:\nDelete option group in RDS\nDelete database RDS\nTerminate Enviroment in Elastic beanstalk\nDelete Application in Elastic beanstalk\nDelete the created role (optional) in IAM\n"
+},
+{
+	"uri": "//localhost:1313/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

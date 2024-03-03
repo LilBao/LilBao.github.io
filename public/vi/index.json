@@ -1,0 +1,92 @@
+[
+{
+	"uri": "//localhost:1313/vi/1-introduce/",
+	"title": "1. Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "Bắt đầu triển khai ứng dụng, kết nối với cơ sở dữ liệu thông qua S3, RDS và EBS. Tổng quan Trong workshop này, bạn sẽ biết cách đẩy các file lên s3, tạo vào kết nối RDS với file .bak, và deploy ứng dụng bằng EBS Service.\nNội dung Giới thiệu Chuẩn bị S3 RDS EBS Xóa tài nguyên "
+},
+{
+	"uri": "//localhost:1313/vi/",
+	"title": "1. Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "Bắt đầu triển khai ứng dụng, kết nối với cơ sở dữ liệu thông qua S3, RDS và EBS. Tổng quan Trong workshop này, bạn sẽ biết cách đẩy các file lên s3, tạo vào kết nối RDS với file .bak, và deploy ứng dụng bằng EBS Service.\nNội dung Giới thiệu Chuẩn bị S3 RDS EBS Xóa tài nguyên "
+},
+{
+	"uri": "//localhost:1313/vi/3-s3/3.1-creates3/",
+	"title": "Tạo Bucket S3",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Bucket S3 Truy cập S3 Service sau đó chọn Create S3 Bucket: Cung cấp tên cho bucket và chọn recommend Bước cuối cùng là nhấn vào tạo Tải một tệp lên Bucket S3. Truy cập S3 Service sau đó chọn bucket mà bạn muốn và nhấp vào upload. Cung cấp tên cho bucket và chọn recommend "
+},
+{
+	"uri": "//localhost:1313/vi/4-rds/4.1-createrds/",
+	"title": "Tạo Database RDS",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Database RDS Truy cập RDS Service, sau đó chọn create database\nChọn method: Standard -\u0026gt; Engine: chọn MSSQl -\u0026gt; Teamplates: chọn free tier -\u0026gt; Settings: Nhập thông tin như trên, tên người dùng và mật khẩu và disable auto scalling-\u0026gt; Connectivity: chọn puclic access yes -\u0026gt; Create database\n"
+},
+{
+	"uri": "//localhost:1313/vi/5-ebs/5.1-createebs/",
+	"title": "Tạo EBS",
+	"tags": [],
+	"description": "",
+	"content": "EBS Service Truy cập dịch vụ EBS Service, sau đó chúng ta chọn \u0026ldquo;create application\u0026rdquo; -\u0026gt; Chúng ta điền thông tin\nChúng ta chọn tab -\u0026gt; chúng ta nhấp vào \u0026ldquo;create enviroment\u0026rdquo;\n-Step 1: Điền thông tin vào 2 mục thông tin Application and Enviroment -\u0026gt; Platform: chọn mã chúng ta cần triển khai-\u0026gt; Application code: chọn tải lên mã, điền phiên bản, tải lên mã với 2 tùy chọn (tệp cục bộ hoặc S3) -\u0026gt; Next step\n-Step 2: Chọn create and use service role -\u0026gt; EC2 instance profile : chúng ta chọn role trong bước đầu tiên chúng ta đã tạo -\u0026gt; Next step\n-Step 3 and 4 (Optional): Trong các bước này, chúng ta có thể cấu hình theo ý muốn, hoặc chúng ta có thể chọn bỏ qua chúng.\n-Step 5: Trong bước này, cuộn xuống trang cuối cùng và cấu hình lại thuộc tính môi trường. Sau đó, lấy thông tin từ dịch vụ RDS, chẳng hạn như Endpoint, tên cơ sở dữ liệu, tên người dùng và mật khẩu. Tiếp tục sang bước tiếp theo và cuối cùng để xem lại.\n-Step 6: Chúng ta xem lại thông tin và click submit\nVui lòng đợi một chút trong khi EBS triển khai mã của bạn.\n"
+},
+{
+	"uri": "//localhost:1313/vi/2-preparation/",
+	"title": "Chuẩn bị",
+	"tags": [],
+	"description": "",
+	"content": "Source code để deploy lên EBS Bạn có thể sử dụng bất kỳ ngôn ngữ lập trình nào để triển khai trên EBS. Trong bài workshop này, tôi sẽ sử dụng Java để triển khai ứng dụng web lên EBS.\nFile .bak của database Bạn cần chuẩn bị một tệp .bak của bất kỳ cơ sở dữ liệu nào. Trong bài workshop này, Mình sẽ sử dụng MSSQL.\nExample with MSSQL\nKết nối với cơ sở dữ liệu và nhấp chuột phải vào cơ sở dữ liệu bạn cần xuất tệp .bak từ -\u0026gt; chọn task -\u0026gt; Back up Chọn địa chỉ để lưu tệp và nhấp vào add Đầu tiên, hãy tạo một vai trò cung cấp một số quyền cho việc làm việc với dịch vụ EBS như bên dưới. Truy cập IAM -\u0026gt; Role -\u0026gt; Tạo role -\u0026gt; Chọn AWS Service -\u0026gt; Chọn EC2 làm dịch vụ và trường hợp sử dụng -\u0026gt; Chọn ba chính sách dưới đây -\u0026gt; Cung cấp tên cho vai trò và sau đó tạo. Được rồi, bây giờ chúng ta di chuyển sang phần tiếp theo. "
+},
+{
+	"uri": "//localhost:1313/vi/4-rds/4.2-connectrdss3/",
+	"title": "Khôi phục database với option group",
+	"tags": [],
+	"description": "",
+	"content": "Khôi phục database với option group Truy cập dịch vụ RDS chọn Option group\nĐiền vào biểu mẫu thông tin.\nChọn \u0026ldquo;option group\u0026rdquo; vừa tạo -\u0026gt; Tìm option -\u0026gt; Add the option.\nTuỳ chọn điền thông tin như sau (tuỳ chọn) -\u0026gt; nhấp vào tạo.\nQuay lại tab cơ sở dữ liệu -\u0026gt; chọn cơ sở dữ liệu mà chúng ta cần khôi phục và chọn sửa -\u0026gt; tìm \u0026ldquo;Additional configuration\u0026rdquo; và cấu hình như sau -\u0026gt; sửa đổi cơ sở dữ liệu.\n"
+},
+{
+	"uri": "//localhost:1313/vi/3-s3/",
+	"title": "Giới thiệu S3",
+	"tags": [],
+	"description": "",
+	"content": "Giới thiệu S3 Amazon Simple Storage Service (Amazon S3) là một dịch vụ lưu trữ đối tượng cung cấp khả năng thay đổi quy mô, mức độ sẵn sàng của dữ liệu, độ bảo mật và hiệu suất hàng đầu trong ngành. Khách hàng thuộc mọi quy mô và ngành nghề có thể lưu trữ và bảo vệ dữ liệu thuộc mọi kích thước cho hầu hết tất cả các trường hợp sử dụng, chẳng hạn như hồ dữ liệu, ứng dụng hoạt động trên đám mây và ứng dụng di động. Với các lớp lưu trữ tiết kiệm chi phí và tính năng quản lý dễ sử dụng, bạn có thể tối ưu hóa chi phí, tổ chức dữ liệu và cấu hình các biện pháp kiểm soát quyền truy cập được tinh chỉnh để đáp ứng yêu cầu cụ thể về kinh doanh, tổ chức và tuân thủ.\nNội dung Create bucket S3 "
+},
+{
+	"uri": "//localhost:1313/vi/4-rds/",
+	"title": "Giới thiệu RDS ",
+	"tags": [],
+	"description": "",
+	"content": "Giới thiệu RDS Dịch vụ cơ sở dữ liệu quan hệ của Amazon (Amazon RDS) là một tập hợp các dịch vụ được quản lý giúp bạn dễ dàng thiết lập, vận hành và điều chỉnh quy mô cơ sở dữ liệu trên đám mây. Chọn trong số tám công cụ phổ biến: Phiên bản Amazon Aurora tương thích với PostgreSQL, Phiên bản Amazon Aurora tương thích với MySQL, RDS dành cho PostgreSQL, RDS dành cho MySQL, RDS dành cho MariaDB, RDS dành cho SQL Server, RDS dành cho Oracle và RDS dành cho Db2. Triển khai tại chỗ bằng Amazon RDS trên AWS Outposts hoặc bằng quyền truy cập nâng cao vào hệ điều hành và môi trường cơ sở dữ liệu cơ bản thông qua Amazon RDS Custom.\nNội dung Tạo RDS Khôi phục CSDL "
+},
+{
+	"uri": "//localhost:1313/vi/5-ebs/",
+	"title": "Giới thiệu EBS",
+	"tags": [],
+	"description": "",
+	"content": "1. Giới thiệu EBS Amazon Elastic Block Store (Amazon EBS) là một dịch vụ lưu trữ khối dữ liệu hiệu suất cao, có thể mở rộng và dễ sử dụng, được thiết kế cho Amazon Elastic Compute Cloud (Amazon EC2).\n"
+},
+{
+	"uri": "//localhost:1313/vi/6-cleanup/",
+	"title": "Dọn dẹp tài nguyên",
+	"tags": [],
+	"description": "",
+	"content": "Dọn dẹp tài nguyên Chúng ta sẽ tiến hành xóa các tài nguyên theo thứ tự sau\nXóa option group trong RDS\nXóa RDS\nXóa EBS Enviroment\nXóa Application EBS\nXóa Role vừa tạo (Optional)\n"
+},
+{
+	"uri": "//localhost:1313/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
